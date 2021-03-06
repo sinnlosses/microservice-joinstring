@@ -7,6 +7,10 @@ function execute() {
     var leftString = getDocumentId("leftString").value;
     var rightString = getDocumentId("rightString").value;
     for (var i = 0; i < inputRows.length; i++) {
+        // 対象の行でない場合は除く
+        if (!isTargetRow(inputRows[i])) {
+            continue;
+        }
         var joinString = leftString + inputRows[i] + rightString;
         inputRows[i] = joinString;
     }
@@ -19,4 +23,17 @@ function execute() {
  */
 function getDocumentId(id) {
     return document.getElementById(id);
+}
+/**
+ * 操作すべき行か判定する.
+ * @param text 判定する対象テキスト
+ * @param commentSymbol コメント文字列
+ */
+function isTargetRow(text) {
+    if (text.length < 1) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
