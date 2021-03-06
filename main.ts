@@ -33,7 +33,7 @@ function getDocumentId(id:string):HTMLInputElement{
 /**
  * 操作すべき行か判定する.
  * @param text 判定する対象テキスト
- * @param commentSymbol コメント文字列
+ * @param left 左側に追加したい文字列
  */
  function isTargetRow(text:string):boolean{
     if (text.length < 1){
