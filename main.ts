@@ -8,6 +8,12 @@ function execute():void{
     const rightString:string = getDocumentId("rightString").value;
 
     for (let i = 0; i < inputRows.length; i++){
+        // 対象の行でない場合は除く
+        if (!isTargetRow(inputRows[i])){
+            continue; 
+        }
+        
+
         const joinString:string = leftString + inputRows[i] + rightString
         inputRows[i] = joinString;
 
@@ -22,4 +28,19 @@ function execute():void{
  */
 function getDocumentId(id:string):HTMLInputElement{
     return <HTMLInputElement>document.getElementById(id);
+}
+
+/**
+ * 操作すべき行か判定する.
+ * @param text 判定する対象テキスト
+ * @param commentSymbol コメント文字列
+ */
+ function isTargetRow(text:string):boolean{
+    if (text.length < 1){
+        return false;
+    }
+    else{
+        return true;
+    }
+    
 }
